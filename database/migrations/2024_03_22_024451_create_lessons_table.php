@@ -18,10 +18,11 @@ return new class extends Migration
             $table->string('image_uri', 255)->nullable();
             $table->string('content_uri', 255);
             $table->string('pdf_uri', 255);
-            $table->unsignedInteger('level_id');
+            $table->unsignedBigInteger('level_id');
             $table->timestamps();
 
-            $table->foreign('level_id')->references('id')->on('levels')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('level_id')
+                ->references('id')->on('users');
         });
     }
 
